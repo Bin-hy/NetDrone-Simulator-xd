@@ -1,0 +1,25 @@
+{
+    "routes": [{
+            "TargetNetwork": "192.168.1.1",
+            "NextJump": "",
+            "OutInterface": "",
+            "routesID": "router-1"
+        },
+        {
+            "TargetNetwork": "192.168.2.1",
+            "NextJump": "",
+            "OutInterface": "",
+            "routesID": "router-2"
+        }, {
+            "TargetNetwork": "192.168.3.1",
+            "NextJump": "",
+            "OutInterface": "",
+            "routesID": "router-3"
+        }, {
+            "TargetNetwork": "192.168.4.1",
+            "NextJump": "",
+            "OutInterface": "",
+            "routesID": "router-4"
+        }
+    ]
+}

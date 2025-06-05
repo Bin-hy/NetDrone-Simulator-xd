@@ -1,0 +1,185 @@
+{
+    "routersData": [{
+            "routerCoreStateData": {
+                "routeId": "router1",
+                "directSubNetworkCount": 0
+            },
+            "routes": [{
+                    "TargetNetwork": "192.168.1.0/24",
+                    "NextJump": "直连",
+                    "OutInterface": "Internal_Interface_A",
+                    "routesID": "routerIdA_local"
+                },
+                {
+                    "TargetNetwork": "192.168.2.0/24",
+                    "NextJump": "192.168.2.1",
+                    "OutInterface": "etha-1",
+                    "routesID": "routerIdA_to_B"
+                },
+                {
+                    "TargetNetwork": "192.168.3.0/24",
+                    "NextJump": "192.168.3.1",
+                    "OutInterface": "etha-2",
+                    "routesID": "routerIdA_to_C"
+                },
+                {
+                    "TargetNetwork": "192.168.4.0/24",
+                    "NextJump": "192.168.3.1",
+                    "OutInterface": "etha-2",
+                    "routesID": "routerIdA_to_D_via_C"
+                },
+                {
+                    "TargetNetwork": "192.168.5.0/24",
+                    "NextJump": "192.168.3.1",
+                    "OutInterface": "etha-2",
+                    "routesID": "routerIdA_to_E_via_C"
+                }
+            ]
+        },
+        {
+            "routerCoreStateData": {
+                "routeId": "router2",
+                "directSubNetworkCount": 0
+            },
+            "routes": [{
+                    "TargetNetwork": "192.168.2.0/24",
+                    "NextJump": "直连",
+                    "OutInterface": "Internal_Interface_B",
+                    "routesID": "routerIdB_local"
+                },
+                {
+                    "TargetNetwork": "192.168.1.0/24",
+                    "NextJump": "192.168.1.1",
+                    "OutInterface": "ethb-1",
+                    "routesID": "routerIdB_to_A"
+                },
+                {
+                    "TargetNetwork": "192.168.3.0/24",
+                    "NextJump": "192.168.3.2",
+                    "OutInterface": "ethb-2",
+                    "routesID": "routerIdB_to_C"
+                },
+                {
+                    "TargetNetwork": "192.168.4.0/24",
+                    "NextJump": "192.168.3.2",
+                    "OutInterface": "ethb-2",
+                    "routesID": "routerIdB_to_D_via_C"
+                },
+                {
+                    "TargetNetwork": "192.168.5.0/24",
+                    "NextJump": "192.168.3.2",
+                    "OutInterface": "ethb-2",
+                    "routesID": "routerIdB_to_E_via_C"
+                }
+            ]
+        }, {
+            "routerCoreStateData": {
+                "routeId": "router3",
+                "directSubNetworkCount": 0
+            },
+            "routes": [{
+                    "TargetNetwork": "192.168.3.0/24",
+                    "NextJump": "直连",
+                    "OutInterface": " ",
+                    "routesID": "routerIdC_local"
+                },
+                {
+                    "TargetNetwork": "192.168.1.0/24",
+                    "NextJump": "192.168.1.2",
+                    "OutInterface": "ethc-1",
+                    "routesID": "routerIdC_to_A"
+                },
+                {
+                    "TargetNetwork": "192.168.2.0/24",
+                    "NextJump": "192.168.2.2",
+                    "OutInterface": "ethc-2",
+                    "routesID": "routerIdC_to_B"
+                },
+                {
+                    "TargetNetwork": "192.168.4.0/24",
+                    "NextJump": "192.168.4.1",
+                    "OutInterface": "ethc-3",
+                    "routesID": "routerIdC_to_D"
+                },
+                {
+                    "TargetNetwork": "192.168.5.0/24",
+                    "NextJump": "192.168.5.1",
+                    "OutInterface": "ethc-4",
+                    "routesID": "routerIdC_to_E"
+                }
+            ]
+        }, {
+            "routerCoreStateData": {
+                "routeId": "router4",
+                "directSubNetworkCount": 0
+            },
+            "routes": [{
+                    "TargetNetwork": "192.168.4.0/24",
+                    "NextJump": "直连",
+                    "OutInterface": "Internal_Interface_D",
+                    "routesID": "routerIdD_local"
+                },
+                {
+                    "TargetNetwork": "192.168.3.0/24",
+                    "NextJump": "192.168.3.3",
+                    "OutInterface": "ethd-1",
+                    "routesID": "routerIdD_to_C"
+                },
+                {
+                    "TargetNetwork": "192.168.5.0/24",
+                    "NextJump": "192.168.5.2",
+                    "OutInterface": "ethd-2",
+                    "routesID": "routerIdD_to_E"
+                },
+                {
+                    "TargetNetwork": "192.168.1.0/24",
+                    "NextJump": "192.168.3.3",
+                    "OutInterface": "ethd-1",
+                    "routesID": "routerIdD_to_A_via_C"
+                },
+                {
+                    "TargetNetwork": "192.168.2.0/24",
+                    "NextJump": "192.168.3.3",
+                    "OutInterface": "ethd-1",
+                    "routesID": "routerIdD_to_B_via_C"
+                }
+            ]
+        }, {
+            "routerCoreStateData": {
+                "routeId": "router5",
+                "directSubNetworkCount": 0
+            },
+            "routes": [{
+                    "TargetNetwork": "192.168.5.0/24",
+                    "NextJump": "直连",
+                    "OutInterface": "Internal_Interface_E",
+                    "routesID": "routerIdE_local"
+                },
+                {
+                    "TargetNetwork": "192.168.3.0/24",
+                    "NextJump": "192.168.3.4",
+                    "OutInterface": "ethe-1",
+                    "routesID": "routerIdE_to_C"
+                },
+                {
+                    "TargetNetwork": "192.168.4.0/24",
+                    "NextJump": "192.168.4.2",
+                    "OutInterface": "ethe-2",
+                    "routesID": "routerIdE_to_D"
+                },
+                {
+                    "TargetNetwork": "192.168.1.0/24",
+                    "NextJump": "192.168.3.4",
+                    "OutInterface": "ethe-1",
+                    "routesID": "routerIdE_to_A_via_C"
+                },
+                {
+                    "TargetNetwork": "192.168.2.0/24",
+                    "NextJump": "192.168.3.4",
+                    "OutInterface": "ethe-1",
+                    "routesID": "routerIdE_to_B_via_C"
+                }
+            ]
+        }
+    ]
+}
