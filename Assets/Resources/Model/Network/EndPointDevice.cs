@@ -114,8 +114,4 @@ public class EndPointDevice : MonoBehaviour
         outerLabel.text = epName;
         this.isPlaced = isPlaced; // 创建默认设置是非放置模式
     }
-    void UpdateView()
-    {
-
-    }
 }

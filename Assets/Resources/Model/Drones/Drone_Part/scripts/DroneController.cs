@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
@@ -15,7 +16,9 @@ public class DroneController : ControllerBase
     [SerializeField]
     [Tooltip("是否旋转桨叶")]
     public bool isSpin = false;
-
+    [SerializeField]
+    [Tooltip("")]
+    private Vector3 spinDir;
     [SerializeField]
     [Tooltip("桨叶Transform数组")]
     private Transform[] paddleRotations;
@@ -135,6 +138,7 @@ public class DroneController : ControllerBase
         /// <param name="rot">桨叶的Transform组件</param>
         void HandlePaddleSpin(Transform rot)
         {
+            
             float rotationAmount = paddleSpinSpeed * paddleSpinDirection * Time.deltaTime;
             rot.Rotate(0, rotationAmount, 0, Space.Self);
         }

@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [Header("导航栏")]
-    public Button DroneShowButton;
-    public Button DroneManageButton;
-    public Button CRCLearnButton;
-    public Button RouteLearnButton;
-    public Button TCPLearnButton;
+    [SerializeField] public Button MenuShowButton;
+    [SerializeField] public Button DroneShowButton;
+    [SerializeField] public Button DroneManageButton;
+    [SerializeField] public Button CRCLearnButton;
+    [SerializeField] public Button RouteLearnButton;
+    [SerializeField] public Button TCPLearnButton;
 
 
 
@@ -18,8 +19,16 @@ public class MenuController : MonoBehaviour
     {
         Initialized();
     }
+    private void Start()
+    {
+        // 默认打开MenuPanel界面
+        UIManager.Instance.OpenPanel("MenuPanel");
+    }
 
     private void Initialized() {
+        MenuShowButton.onClick.AddListener(() => {
+            UIManager.Instance.OpenPanel("MenuPanel");
+        });
         // 无人机视频流界面
         DroneShowButton.onClick.AddListener(() =>
         {
@@ -45,7 +54,7 @@ public class MenuController : MonoBehaviour
         // TCP握手学习界面
         TCPLearnButton.onClick.AddListener(() =>
         {
-
+            UIManager.Instance.OpenPanel("TCPPanel");
         });
 
     }

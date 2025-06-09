@@ -1,183 +1,321 @@
 {
     "routersData": [{
             "routerCoreStateData": {
-                "routeId": "router1",
-                "directSubNetworkCount": 0
+                "directSubNetworkCount": 0,
+                "RouterID": "router-1",
+                "Interfaces": [{
+                        "InterfaceName": "Internal_Interface_A",
+                        "IPAddress": "192.168.1.1",
+                        "SubnetMask": "255.255.255.0"
+                    },
+                    {
+                        "InterfaceName": "etha-1",
+                        "IPAddress": "192.168.2.1",
+                        "SubnetMask": "255.255.255.0"
+                    },
+                    {
+                        "InterfaceName": "etha-2",
+                        "IPAddress": "192.168.3.1",
+                        "SubnetMask": "255.255.255.0"
+                    }
+                ]
             },
             "routes": [{
-                    "TargetNetwork": "192.168.1.0/24",
-                    "NextJump": "直连",
+                    "TargetNetwork": "192.168.1.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "直连",
                     "OutInterface": "Internal_Interface_A",
-                    "routesID": "routerIdA_local"
+                    "Metric": 0,
+                    "RouteID": "routerIdA_local"
                 },
                 {
-                    "TargetNetwork": "192.168.2.0/24",
-                    "NextJump": "192.168.2.1",
+                    "TargetNetwork": "192.168.2.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "直连",
                     "OutInterface": "etha-1",
-                    "routesID": "routerIdA_to_B"
+                    "Metric": 0,
+                    "RouteID": "routerIdA_to_B_direct"
                 },
                 {
-                    "TargetNetwork": "192.168.3.0/24",
-                    "NextJump": "192.168.3.1",
+                    "TargetNetwork": "192.168.3.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "直连",
                     "OutInterface": "etha-2",
-                    "routesID": "routerIdA_to_C"
+                    "Metric": 0,
+                    "RouteID": "routerIdA_to_C_direct"
                 },
                 {
-                    "TargetNetwork": "192.168.4.0/24",
-                    "NextJump": "192.168.3.1",
+                    "TargetNetwork": "192.168.4.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.3.4",
                     "OutInterface": "etha-2",
-                    "routesID": "routerIdA_to_D_via_C"
+                    "Metric": 10,
+                    "RouteID": "routerIdA_to_D_via_C"
                 },
                 {
-                    "TargetNetwork": "192.168.5.0/24",
-                    "NextJump": "192.168.3.1",
+                    "TargetNetwork": "192.168.5.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.3.4",
                     "OutInterface": "etha-2",
-                    "routesID": "routerIdA_to_E_via_C"
+                    "Metric": 20,
+                    "RouteID": "routerIdA_to_E_via_C_D"
                 }
             ]
         },
         {
             "routerCoreStateData": {
-                "routeId": "router2",
-                "directSubNetworkCount": 0
+                "directSubNetworkCount": 0,
+                "RouterID": "router-2",
+                "Interfaces": [{
+                        "InterfaceName": "Internal_Interface_B",
+                        "IPAddress": "192.168.2.2",
+                        "SubnetMask": "255.255.255.0"
+                    },
+                    {
+                        "InterfaceName": "ethb-1",
+                        "IPAddress": "192.168.2.1",
+                        "SubnetMask": "255.255.255.0"
+                    },
+                    {
+                        "InterfaceName": "ethb-2",
+                        "IPAddress": "192.168.4.1",
+                        "SubnetMask": "255.255.255.0"
+                    }
+                ]
             },
             "routes": [{
-                    "TargetNetwork": "192.168.2.0/24",
-                    "NextJump": "直连",
+                    "TargetNetwork": "192.168.2.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "直连",
                     "OutInterface": "Internal_Interface_B",
-                    "routesID": "routerIdB_local"
+                    "Metric": 0,
+                    "RouteID": "routerIdB_local"
                 },
                 {
-                    "TargetNetwork": "192.168.1.0/24",
-                    "NextJump": "192.168.1.1",
+                    "TargetNetwork": "192.168.1.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.2.1",
                     "OutInterface": "ethb-1",
-                    "routesID": "routerIdB_to_A"
+                    "Metric": 10,
+                    "RouteID": "routerIdB_to_A"
                 },
                 {
-                    "TargetNetwork": "192.168.3.0/24",
-                    "NextJump": "192.168.3.2",
+                    "TargetNetwork": "192.168.4.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "直连",
                     "OutInterface": "ethb-2",
-                    "routesID": "routerIdB_to_C"
+                    "Metric": 0,
+                    "RouteID": "routerIdB_to_D_direct"
                 },
                 {
-                    "TargetNetwork": "192.168.4.0/24",
-                    "NextJump": "192.168.3.2",
+                    "TargetNetwork": "192.168.3.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.4.2",
                     "OutInterface": "ethb-2",
-                    "routesID": "routerIdB_to_D_via_C"
+                    "Metric": 20,
+                    "RouteID": "routerIdB_to_C_via_D"
                 },
                 {
-                    "TargetNetwork": "192.168.5.0/24",
-                    "NextJump": "192.168.3.2",
+                    "TargetNetwork": "192.168.5.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.4.2",
                     "OutInterface": "ethb-2",
-                    "routesID": "routerIdB_to_E_via_C"
+                    "Metric": 30,
+                    "RouteID": "routerIdB_to_E_via_D"
                 }
             ]
         }, {
             "routerCoreStateData": {
-                "routeId": "router3",
-                "directSubNetworkCount": 0
+                "directSubNetworkCount": 0,
+                "RouterID": "router-3",
+                "Interfaces": [{
+                        "InterfaceName": "Internal_Interface_C",
+                        "IPAddress": "192.168.3.3",
+                        "SubnetMask": "255.255.255.0"
+                    },
+                    {
+                        "InterfaceName": "ethc-1",
+                        "IPAddress": "192.168.3.1",
+                        "SubnetMask": "255.255.255.0"
+                    },
+                    {
+                        "InterfaceName": "ethc-2",
+                        "IPAddress": "192.168.3.4",
+                        "SubnetMask": "255.255.255.0"
+                    }
+                ]
             },
             "routes": [{
-                    "TargetNetwork": "192.168.3.0/24",
-                    "NextJump": "直连",
-                    "OutInterface": " ",
-                    "routesID": "routerIdC_local"
+                    "TargetNetwork": "192.168.3.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "直连",
+                    "OutInterface": "Internal_Interface_C",
+                    "Metric": 0,
+                    "RouteID": "routerIdC_local"
                 },
                 {
-                    "TargetNetwork": "192.168.1.0/24",
-                    "NextJump": "192.168.1.2",
+                    "TargetNetwork": "192.168.1.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.3.1",
                     "OutInterface": "ethc-1",
-                    "routesID": "routerIdC_to_A"
+                    "Metric": 10,
+                    "RouteID": "routerIdC_to_A"
                 },
                 {
-                    "TargetNetwork": "192.168.2.0/24",
-                    "NextJump": "192.168.2.2",
+                    "TargetNetwork": "192.168.4.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.3.4",
                     "OutInterface": "ethc-2",
-                    "routesID": "routerIdC_to_B"
+                    "Metric": 10,
+                    "RouteID": "routerIdC_to_D"
                 },
                 {
-                    "TargetNetwork": "192.168.4.0/24",
-                    "NextJump": "192.168.4.1",
-                    "OutInterface": "ethc-3",
-                    "routesID": "routerIdC_to_D"
+                    "TargetNetwork": "192.168.2.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.3.1",
+                    "OutInterface": "ethc-1",
+                    "Metric": 20,
+                    "RouteID": "routerIdC_to_B_via_A"
                 },
                 {
-                    "TargetNetwork": "192.168.5.0/24",
-                    "NextJump": "192.168.5.1",
-                    "OutInterface": "ethc-4",
-                    "routesID": "routerIdC_to_E"
+                    "TargetNetwork": "192.168.5.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.3.4",
+                    "OutInterface": "ethc-2",
+                    "Metric": 20,
+                    "RouteID": "routerIdC_to_E"
                 }
             ]
         }, {
             "routerCoreStateData": {
-                "routeId": "router4",
-                "directSubNetworkCount": 0
+                "directSubNetworkCount": 0,
+                "RouterID": "router-4",
+                "Interfaces": [{
+                        "InterfaceName": "Internal_Interface_D",
+                        "IPAddress": "192.168.4.4",
+                        "SubnetMask": "255.255.255.0"
+                    },
+                    {
+                        "InterfaceName": "ethd-1",
+                        "IPAddress": "192.168.4.1",
+                        "SubnetMask": "255.255.255.0"
+                    },
+                    {
+                        "InterfaceName": "ethd-2",
+                        "IPAddress": "192.168.4.2",
+                        "SubnetMask": "255.255.255.0"
+                    }
+                ]
             },
             "routes": [{
-                    "TargetNetwork": "192.168.4.0/24",
-                    "NextJump": "直连",
+                    "TargetNetwork": "192.168.4.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "直连",
                     "OutInterface": "Internal_Interface_D",
-                    "routesID": "routerIdD_local"
+                    "Metric": 0,
+                    "RouteID": "routerIdD_local"
                 },
                 {
-                    "TargetNetwork": "192.168.3.0/24",
-                    "NextJump": "192.168.3.3",
+                    "TargetNetwork": "192.168.2.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.4.1",
                     "OutInterface": "ethd-1",
-                    "routesID": "routerIdD_to_C"
+                    "Metric": 10,
+                    "RouteID": "routerIdD_to_B"
                 },
                 {
-                    "TargetNetwork": "192.168.5.0/24",
-                    "NextJump": "192.168.5.2",
+                    "TargetNetwork": "192.168.3.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.4.2",
                     "OutInterface": "ethd-2",
-                    "routesID": "routerIdD_to_E"
+                    "Metric": 10,
+                    "RouteID": "routerIdD_to_C"
                 },
                 {
-                    "TargetNetwork": "192.168.1.0/24",
-                    "NextJump": "192.168.3.3",
-                    "OutInterface": "ethd-1",
-                    "routesID": "routerIdD_to_A_via_C"
+                    "TargetNetwork": "192.168.5.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.4.2",
+                    "OutInterface": "ethd-2",
+                    "Metric": 10,
+                    "RouteID": "routerIdD_to_E"
                 },
                 {
-                    "TargetNetwork": "192.168.2.0/24",
-                    "NextJump": "192.168.3.3",
+                    "TargetNetwork": "192.168.1.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.4.2",
+                    "OutInterface": "ethd-2",
+                    "Metric": 20,
+                    "RouteID": "routerIdD_to_A_via_C"
+                },
+                {
+                    "TargetNetwork": "192.168.2.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.4.2",
                     "OutInterface": "ethd-1",
-                    "routesID": "routerIdD_to_B_via_C"
+                    "Metric": 10,
+                    "RouteID": "routerIdD_to_B_via_C"
                 }
             ]
         }, {
             "routerCoreStateData": {
-                "routeId": "router5",
-                "directSubNetworkCount": 0
+                "directSubNetworkCount": 0,
+                "RouterID": "router-5",
+                "Interfaces": [{
+                        "InterfaceName": "Internal_Interface_E",
+                        "IPAddress": "192.168.5.5",
+                        "SubnetMask": "255.255.255.0"
+                    },
+                    {
+                        "InterfaceName": "ethe-1",
+                        "IPAddress": "192.168.3.4",
+                        "SubnetMask": "255.255.255.0"
+                    },
+                    {
+                        "InterfaceName": "ethe-2",
+                        "IPAddress": "192.168.4.2",
+                        "SubnetMask": "255.255.255.0"
+                    }
+                ]
             },
             "routes": [{
-                    "TargetNetwork": "192.168.5.0/24",
-                    "NextJump": "直连",
+                    "TargetNetwork": "192.168.5.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "直连",
                     "OutInterface": "Internal_Interface_E",
-                    "routesID": "routerIdE_local"
+                    "Metric": 0,
+                    "RouteID": "routerIdE_local"
                 },
                 {
-                    "TargetNetwork": "192.168.3.0/24",
-                    "NextJump": "192.168.3.4",
+                    "TargetNetwork": "192.168.3.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.3.4",
                     "OutInterface": "ethe-1",
-                    "routesID": "routerIdE_to_C"
+                    "Metric": 10,
+                    "RouteID": "routerIdE_to_C"
                 },
                 {
-                    "TargetNetwork": "192.168.4.0/24",
-                    "NextJump": "192.168.4.2",
+                    "TargetNetwork": "192.168.4.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.4.2",
                     "OutInterface": "ethe-2",
-                    "routesID": "routerIdE_to_D"
+                    "Metric": 10,
+                    "RouteID": "routerIdE_to_D"
                 },
                 {
-                    "TargetNetwork": "192.168.1.0/24",
-                    "NextJump": "192.168.3.4",
+                    "TargetNetwork": "192.168.1.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.3.4",
                     "OutInterface": "ethe-1",
-                    "routesID": "routerIdE_to_A_via_C"
+                    "Metric": 20,
+                    "RouteID": "routerIdE_to_A_via_C"
                 },
                 {
-                    "TargetNetwork": "192.168.2.0/24",
-                    "NextJump": "192.168.3.4",
-                    "OutInterface": "ethe-1",
-                    "routesID": "routerIdE_to_B_via_C"
+                    "TargetNetwork": "192.168.2.0",
+                    "SubnetMask": "255.255.255.0",
+                    "NextHop": "192.168.4.2",
+                    "OutInterface": "ethe-2",
+                    "Metric": 20,
+                    "RouteID": "routerIdE_to_B_via_D"
                 }
             ]
         }

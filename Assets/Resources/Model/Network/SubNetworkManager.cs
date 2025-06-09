@@ -39,6 +39,9 @@ public class SubNetworkManager : MonoBehaviour
     private Dictionary<string, SubNetworkController> _subNetworkMaps = new Dictionary<string, SubNetworkController>();
     public Dictionary<string ,SubNetworkController> subNetworkMaps=>_subNetworkMaps;
 
+    private List<EndPointDevice> _endpointlist = new List<EndPointDevice>();
+    public  List<EndPointDevice> allendpointlist =>_endpointlist; // 终端列表
+
     // 根据networkName获取网络
     public SubNetworkController getSubNetworkController(string networkName)
     {
@@ -65,5 +68,7 @@ public class SubNetworkManager : MonoBehaviour
             return false;
         }
         return subNetworkController.deleteEndpoint(device);
+
+        
     }
 }

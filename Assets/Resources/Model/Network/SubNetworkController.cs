@@ -51,6 +51,7 @@ public class SubNetworkController : MonoBehaviour
             _isfull = (_maxEndpointCount == curEndpointCount);
             // 通知更新界面
             OnEndpointListChanged?.Invoke();
+            SubNetworkManager.Instance.allendpointlist.Add(target);
             return true;
         }
         // 挂载点与最大数量不匹配，无法挂载
@@ -77,6 +78,8 @@ public class SubNetworkController : MonoBehaviour
             // 通知更新界面
             OnEndpointListChanged?.Invoke();
             Debug.LogWarning($"{endpoint.endpontBaseData.endpoinName}删除成功！");
+            // 删除列表
+            SubNetworkManager.Instance.allendpointlist.RemoveAll(item => item == endpoint);
             return true; // 删除成功
         }
 

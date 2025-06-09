@@ -37,43 +37,43 @@ public class ERoutersData
 public class ExampleModel : MonoBehaviour
 {
 
-    public event Action OnDataChanged; // 当数据改变的时候, View中监听数据改变渲染新数据。
+    //public event Action OnDataChanged; // 当数据改变的时候, View中监听数据改变渲染新数据。
 
-    #region Model数据
-    private ERouterData _eRouterData; // Model数据 ！
-    public ERouterData eRouterData { get { return _eRouterData; } } // 限制get操作
-    #endregion
+    //#region Model数据
+    //private ERouterData _eRouterData; // Model数据 ！
+    //public ERouterData eRouterData { get { return _eRouterData; } } // 限制get操作
+    //#endregion
 
-    // 其他数据
-    private string _eRouterId; // 编号
-    public string eRouterId { get { return _eRouterId; } }
+    //// 其他数据
+    //private string _eRouterId; // 编号
+    //public string eRouterId { get { return _eRouterId; } }
 
-    // 路由字典
-    private Dictionary<string, ExampleSubItemData> RoutesItemMap = new Dictionary<string, ExampleSubItemData>();
-    // 路由信息 列表
-    private List<ExampleSubItemData> RoutesItemList = new List<ExampleSubItemData>();
+    //// 路由字典
+    //private Dictionary<string, ExampleSubItemData> RoutesItemMap = new Dictionary<string, ExampleSubItemData>();
+    //// 路由信息 列表
+    //private List<ExampleSubItemData> RoutesItemList = new List<ExampleSubItemData>();
 
-    public void Initialize(ERouterData initRouterData)
-    {
-        // 初始化数据
-        _eRouterData = initRouterData;
-    }
+    //public void Initialize(ERouterData initRouterData)
+    //{
+    //    // 初始化数据
+    //    _eRouterData = initRouterData;
+    //}
 
-    #region CRUD 增删改
-    // 添加路由表项
-    public void addRouterItem()
-    {
+    //#region CRUD 增删改
+    //// 添加路由表项
+    //public void addRouterItem()
+    //{
 
-    }
-    // 删除路由表项
-    public void deleteRouterItem()
-    {
+    //}
+    //// 删除路由表项
+    //public void deleteRouterItem()
+    //{
 
-    }
-    // 修改路由表项目
-    public void updateRouterItem()
-    {
+    //}
+    //// 修改路由表项目
+    //public void updateRouterItem()
+    //{
 
-    }
-    #endregion
+    //}
+    //#endregion
 }
