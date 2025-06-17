@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Core\Network\TCPSystem\TCPSystem.cs" />
     <Compile Include="Assets\Scripts\Core\UISystem\UIManager.cs" />
     <Compile Include="Assets\Resources\Model\Routers\scripts\RouterManager.cs" />
+    <Compile Include="Assets\Resources\UIPrefab\PopUp\ErrorPopUp.cs" />
     <Compile Include="Assets\Scripts\Core\UISystem\MenuController.cs" />
     <Compile Include="Assets\Scripts\Core\UISystem\UIScreenPanel.cs" />
     <Compile Include="Assets\Scripts\Effect\TextTypingMachineEffect.cs" />
@@ -136,7 +137,6 @@
     <Compile Include="Assets\Scripts\Core\Network\NetworkData\NetworkDevice .cs" />
     <Compile Include="Assets\Resources\Model\Routers\scripts\MMVM\ExampleItem.cs" />
     <Compile Include="Assets\Scripts\Core\Network\NetworkData\NetworkManager .cs" />
-    <Compile Include="Assets\Resources\UIPrefab\PopUp\BinaryErrorPopUp.cs" />
     <Compile Include="Assets\Resources\UIPrefab\RoomItem\Scripts\RoomView.cs" />
   </ItemGroup>
   <ItemGroup>

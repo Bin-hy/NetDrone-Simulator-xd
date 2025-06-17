@@ -1,10 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class BinaryErrorPopUp : UIPopup
+public class ErrorPopUp : UIPopup
 {
+
+    // 错误信息
+    [SerializeField] private TextMeshProUGUI errorMsgCom;//
+
+    // 修改 内容
+    public void SetUpErrorMsg(string errorMsg) { 
+        errorMsgCom.text = errorMsg;
+    }
+
     public void OnOpen()
     {
         //  发出警告音效
