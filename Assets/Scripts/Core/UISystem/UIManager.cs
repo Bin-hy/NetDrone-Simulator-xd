@@ -1,6 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+
+namespace PanelName
+{
+    static class PopUpName
+    {
+        public const string dronesManagerPanel = "DronesManagerPanel";
+        public const string dronesMonitorPanel = "DronesMonitorPanel";
+        public const string crcPanel = "CRCPanel"; 
+        public const string routePanel = "RoutePanel";
+        public const string menuPanel = "MenuPanel";
+        public const string tcpPanel = "TCPPanel";
+
+        public const string droneTutorialPanel = "DroneTutorialPanel"; 
+        public const string playerTutorialPanel = "PlayerTutorialPanel"; 
+
+        public const string crcKnowledgeExplain = "CRC-KnowledgeExplain"; 
+        public const string tcpLinkKnowledgeExplain = "TCP-Link-KnowledgeExplain"; 
+        public const string knowledgeExplain_TCP = "KnowledgeExplain_TCP"; 
+        public const string knowledgeExplain_TCP_Connect = "KnowledgeExplain_TCP Connect";
+        public const string knowledgeExplain_TCP_Disconnect = "KnowledgeExplain_TCP Disconnect";
+
+    }
+
+    static class UIConfimName { 
+        public const string confirmToolTip = "ConfirmToolTip"; 
+
+    }
+    static class ErrorPopUpName {
+        public const string errorPopUp = "ErrorPopUp";
+    }
+}
+
 
 public class UIManager : MonoBehaviour
 {
@@ -179,6 +213,41 @@ public class UIManager : MonoBehaviour
         else
         {
             Debug.LogError($"Popup with ID '{popupID}' not registered.");
+        }
+    }
+
+    public void OpenErrorTip(string popupID,string contentMsg) {
+        if (registeredScreens.TryGetValue(popupID, out UIManagedBase screen))
+        {
+            if (screen is ErrorPopUp errorPopUp)
+            {
+                // If there's an existing popup, make it non-interactive
+                if (popupStack.Count > 0)
+                {
+                    popupStack.Peek().SetInteractable(false);
+                }
+
+                ShowMask(); // Show the mask
+
+                // Push the UIConfirm instance onto the popup stack
+                popupStack.Push(errorPopUp);
+
+                // Setup the confirm dialog with title, content, and callbacks
+                errorPopUp.SetUpErrorMsg("");
+
+                // Open the dialog (make it active, interactive, etc.)
+                errorPopUp.Open();
+
+                Debug.Log($"Opened Confirm Dialog: {popupID}. Stack size: {popupStack.Count}");
+            }
+            else
+            {
+                Debug.LogWarning($"Attempted to open screen '{popupID}' as a confirm dialog. It's of type {screen.GetType().Name}. Use appropriate Open method.");
+            }
+        }
+        else
+        {
+            Debug.LogError($"Confirm Dialog with ID '{popupID}' not registered.");
         }
     }
 

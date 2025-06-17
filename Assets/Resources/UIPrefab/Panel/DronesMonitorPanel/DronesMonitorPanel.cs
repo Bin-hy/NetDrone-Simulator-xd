@@ -1,3 +1,4 @@
+using PanelName;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -82,11 +83,16 @@ public class DronesMonitorPanel : MonoBehaviour
     }
     private void OnClickContorlDevice()
     {
+        if (!curDroneController) {
+            // 请选择连接设备
+            UIManager.Instance.OpenErrorTip(ErrorPopUpName.errorPopUp, "请先选择连接设备");
+            return;
+        }
+
         UIManager.Instance.OpenConfirm("ConfirmToolTip", "提示", $"控制无人机设备\n{curDroneController.droneName}\n中,按住左手 <color=red>X</color> 取消控制。", () => {
             ControllerManager.Instance.SetDroneController(curDroneController);
             ControllerManager.Instance.SwitchController(ControlMode.DroneControl);
-        }, () => {
-        });
+        }, () => {});
     }
     private void OnDestroy()
     {

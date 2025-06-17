@@ -2410,7 +2410,6 @@ MonoBehaviour:
   - {fileID: 9118146341094378840, guid: 28328ad640ace8a4ba3e96e0a5ea856c, type: 3}
   - {fileID: 6311428746241325023, guid: 7923d3813f93446429bdee494c0d1566, type: 3}
   - {fileID: 6451288046710380324, guid: 7ed8bdeca92aaab41a3d9f71732e8457, type: 3}
-  - {fileID: 6311428746241325023, guid: 7923d3813f93446429bdee494c0d1566, type: 3}
   - {fileID: 518495828860947721, guid: 3dce982a3d4e1ef48b8b41de682efb92, type: 3}
   - {fileID: 1335070675792409714, guid: 55ecefd4262dde94bb88f3fca6057cf8, type: 3}
   - {fileID: 4755486441988077447, guid: 38d714b343638d94c913645380f46827, type: 3}
@@ -4591,6 +4590,10 @@ PrefabInstance:
     - target: {fileID: 2886900582413340658, guid: 9d9f972ae3f24f842aebd98bbcc90d28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438241834803514672, guid: 9d9f972ae3f24f842aebd98bbcc90d28, type: 3}
+      propertyPath: pointB
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
